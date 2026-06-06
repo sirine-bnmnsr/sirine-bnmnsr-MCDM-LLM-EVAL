@@ -1,0 +1,85 @@
+% chapters/conclusion.tex
+\chapter{Conclusion and Future Work}
+\label{ch:conclusion}
+
+\section{Summary of Contributions}
+\label{sec:conc-summary}
+
+This dissertation introduced a three-stage human-centred framework for evaluating
+causal explanations produced by Large Language Models. The framework combines
+AHP-derived criterion weights with adaptive question selection and interval-based
+aggregation of Likert ratings, producing a structured and reproducible method for
+comparing LLMs across multiple explanation quality dimensions.
+
+Applied to nine open-source LLMs evaluated by graduate student reviewers on economic
+reasoning tasks, the framework produced four main findings.
+
+First, graduate students prioritise trustworthiness and completeness when evaluating
+LLM explanations. Together, these two criteria account for more than 75\% of total
+criterion weight, a pattern that standard accuracy benchmarks do not capture.
+
+Second, interval-based aggregation reveals reasoning instability that scalar means
+conceal. The performance floor of the top model (\texttt{qwen2.5:14b}) far exceeds
+that of the weakest model (\texttt{codellama:7b}), and interval width is highest in
+the task categories where distinguishing valid from plausible reasoning is hardest.
+
+Third, a systematic fluency trap is identified: several models achieve relatively
+high understandability scores while receiving much lower trustworthiness scores.
+This pattern is most pronounced in \texttt{mistral:7b} and carries direct
+implications for educational deployment, where students may misplace trust in fluent
+but causally unreliable explanations.
+
+Fourth, no single model excels uniformly across all five reasoning task categories,
+indicating that model selection should be task-specific rather than based on
+aggregate rankings.
+
+\section{Broader Impact}
+\label{sec:conc-impact}
+
+The broader impact of this work lies in providing researchers and practitioners with
+a principled process for selecting LLMs and for designing explanations that better
+serve student needs. The combination of human ratings, dispersion-based sampling,
+and interval-based aggregation can support more transparent and defensible model
+selection in settings where explanation quality has direct consequences for learning
+outcomes or decision-making.
+
+The identification of the fluency trap is particularly consequential for AI-assisted
+education. Deploying models that produce coherent-sounding but causally unreliable
+explanations risks reinforcing student misconceptions rather than correcting them.
+Evaluation frameworks that measure trustworthiness explicitly — rather than relying
+on accuracy or fluency as proxies — are therefore essential for responsible
+deployment in academic contexts.
+
+\section{Future Work}
+\label{sec:conc-future}
+
+Several directions extend the present framework.
+
+\textbf{Broader model and domain coverage.} Applying the framework to closed-source
+models and to disciplines beyond economics would test the generalisability of the
+criterion weights and the ranking procedure. Different academic domains may produce
+different weight profiles, reflecting different conventions for acceptable causal
+argumentation.
+
+\textbf{Adaptive weighting across reviewer populations.} The current AHP weights are
+derived from a single cohort of graduate students. Future work could investigate
+whether weights differ systematically across student populations (e.g., undergraduate
+versus doctoral, different disciplinary backgrounds) and develop adaptive weighting
+strategies that reflect these differences.
+
+\textbf{Longitudinal evaluation.} The current study evaluates explanation quality at
+a single point in time. Longitudinal studies that track how student ratings of the
+same model evolve over an academic term could reveal whether repeated exposure to
+LLM explanations affects trust calibration or criterion weighting.
+
+\textbf{Explanation-aware fine-tuning.} The framework's outputs — human ratings
+across structured criteria — could be used as feedback signals for explanation-aware
+fine-tuning. Models trained to optimise for trustworthiness and completeness, as
+measured by student reviewers, may produce explanations that are more aligned with
+educational needs than models optimised solely for accuracy.
+
+\textbf{Automated quality monitoring.} Building on the dispersion metrics developed
+in Stage B, automated tools could monitor explanation quality in deployment by
+flagging outputs where structural dispersion across repeated queries is high,
+signalling potential causal inconsistency without requiring human review of every
+instance.

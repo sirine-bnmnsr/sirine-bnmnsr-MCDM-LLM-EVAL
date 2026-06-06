@@ -1,0 +1,122 @@
+% chapters/discussion.tex
+\chapter{Discussion}
+\label{ch:discussion}
+
+\section{Interpretation of Criterion Weights}
+\label{sec:disc-weights}
+
+The AHP weights show that graduate student reviewers clearly value trustworthiness
+and completeness above the other criteria, together accounting for more than 75\% of
+total weight. This ordering has a straightforward interpretation in an educational
+context: an explanation is only useful as a learning tool if it is first credible and
+adequately scoped. Reviewers stated in free-text comments that trustworthiness forms
+the foundation for all other criteria — once an explanation fails the credibility
+test, secondary qualities such as ease of following or goal support become irrelevant.
+
+This pattern is consistent with the framework of \citet{hoffman2019metrics}, who
+argue that trustworthiness is a prerequisite quality rather than one dimension among
+equals. It also aligns with findings from social transparency research
+\citep{ehsan2021expanding}, where users who encounter unreliable AI outputs reduce
+engagement with all subsequent information from that system.
+
+The subordinate position of usefulness and understandability does not imply that
+these criteria are unimportant. Rather, the results indicate that they are activated
+conditionally: high-performing models earned positive usefulness and understandability
+ratings precisely because their explanations were first perceived as trustworthy.
+Low-performing models received uniformly depressed scores across all criteria,
+suggesting a ceiling effect driven by insufficient credibility.
+
+\section{Model Performance and Practical Implications}
+\label{sec:disc-models}
+
+The interval-based ranking produces a stable ordering that differs in important ways
+from what accuracy-only metrics would suggest. \texttt{qwen2.5:14b} is the strongest
+model by a substantial margin. Its performance floor ($T_{Q1}$) far exceeds those of
+all other models, and its IQR bands are narrow, indicating that it consistently
+produces explanations that reviewers find reliable, complete, and useful across all
+five reasoning task categories.
+
+The finding that \texttt{phi3:3.8b} outperforms the larger \texttt{phi3:medium}
+within the Phi family is notable. It suggests that architectural choices, including
+training data composition, instruction-tuning strategy, and output formatting
+conventions, have a stronger effect on explanation quality than raw parameter count.
+This finding is relevant for practitioners choosing models under resource constraints:
+a smaller model with appropriate architecture may outperform a larger but less
+well-aligned one.
+
+The fluency trap observed in \texttt{mistral:7b} is the most practically consequential
+finding in this study. The gap between its Understandability score and its
+Trustworthiness score is the largest of any model in the evaluation. For students
+using this model's explanations to study economics, the risk is that coherent and
+readable outputs reinforce incorrect causal reasoning rather than correcting it. This
+is consistent with the concern raised by \citet{jin2024llm} that LLMs conflate
+correlation with causation in superficially fluent ways, and by \citet{wu2024causality}
+that reliability of causal claims is systematically difficult to assess from surface
+form.
+
+\section{Interval Width as Evidence of Reasoning Instability}
+\label{sec:disc-interval}
+
+One of the distinctive features of this study is the use of IQR intervals rather
+than point estimates. The interval width carries substantive meaning: a wide interval
+indicates that reviewers disagreed strongly about the quality of an explanation,
+which in turn reflects ambiguity or inconsistency in the underlying model output.
+This interpretation is supported by the correlation analysis, which finds
+Trustworthiness and Usefulness as the dominant drivers of overall score
+($r = 0.993$ and $r = 0.995$ respectively), consistent with the AHP weights.
+
+Wide intervals are most common in Quantitative Reasoning and Procedural Knowledge
+tasks, where the difference between a valid causal chain and a plausible narrative is
+hardest to detect without domain expertise. Narrow intervals are most common in
+Qualitative Reasoning, where the stylistic cues associated with correct reasoning are
+more readily recognised by reviewers. This pattern suggests that the framework's
+sensitivity to reviewer disagreement is itself informative about the nature of the
+reasoning task.
+
+\section{Implications for LLM Explanation Design}
+\label{sec:disc-design}
+
+The results have three direct implications for practitioners developing or deploying
+LLMs in educational settings.
+
+First, since trustworthiness received the highest weight, explanation systems should
+make reliability signals explicit. This includes structured reasoning steps, explicit
+statements of uncertainty, and transparent links between claims and supporting
+evidence. The strongest model in this study (\texttt{qwen2.5:14b}) consistently
+provided structured causal chains, which appears to drive both higher trustworthiness
+and higher completeness ratings.
+
+Second, model selection should be task-specific. No model excels uniformly across
+all five reasoning task categories. Practitioners should identify the task types most
+relevant to their application and select models accordingly, rather than relying on
+aggregate benchmarks.
+
+Third, fluency is not a reliable proxy for quality. Standard accuracy benchmarks do
+not penalise models that produce coherent but unreliable explanations. The framework
+introduced here provides a method for detecting this mismatch, which is important for
+any deployment where explanation quality has direct consequences for student learning
+or decision-making.
+
+\section{Limitations}
+\label{sec:disc-limitations}
+
+Several limitations constrain the generalisability of these findings.
+
+The reviewer pool consists of nine graduate students from a single institution with
+a shared economics background. While this homogeneity increases within-study
+consistency, it limits the generalisability of the derived criterion weights to other
+reviewer populations, disciplines, or cultural contexts. Future work should replicate
+the study with larger and more diverse reviewer pools.
+
+The study focused on a single domain (Economics) and a single benchmark (MMLU).
+Explanation preferences and criterion weights may differ in other academic disciplines,
+particularly those with different conventions for causal argumentation.
+
+Adaptive question selection increased the informativeness of the evaluation, but
+prevents direct comparison with unselected questions. The 12 selected questions were
+optimised for discriminative power and may not be representative of the full item
+distribution.
+
+Finally, all nine models evaluated are open-source. The framework has not been
+validated on closed-source models, whose explanation characteristics may differ
+substantially.

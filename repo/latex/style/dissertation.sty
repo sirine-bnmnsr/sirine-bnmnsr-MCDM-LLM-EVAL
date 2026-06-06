@@ -1,0 +1,96 @@
+% dissertation.sty — shared style definitions
+\ProvidesPackage{dissertation}[2025/01/01 Dissertation Style]
+
+% ── Page geometry ──────────────────────────────────────────────
+\RequirePackage[
+  a4paper,
+  top=2.5cm, bottom=2.5cm,
+  left=3.5cm, right=2.5cm
+]{geometry}
+
+% ── Typography ──────────────────────────────────────────────────
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[protrusion=true,expansion=false]{microtype}
+\RequirePackage{setspace}
+\onehalfspacing
+
+% ── Maths ───────────────────────────────────────────────────────
+\RequirePackage{amsmath, amssymb, mathtools}
+
+% ── Figures and tables ──────────────────────────────────────────
+\RequirePackage{graphicx}
+\RequirePackage{booktabs}
+\RequirePackage{longtable}
+\RequirePackage{multirow}
+\RequirePackage{array}
+\RequirePackage[font=small, labelfont=bf]{caption}
+\RequirePackage{subcaption}
+\RequirePackage{float}
+
+% ── Colours ─────────────────────────────────────────────────────
+\RequirePackage[dvipsnames, table]{xcolor}
+\definecolor{chapterblue}{RGB}{0, 51, 102}
+
+% ── Chapter / section headings ──────────────────────────────────
+\RequirePackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries\color{chapterblue}}
+  {\chaptertitlename\ \thechapter}{14pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{30pt}{20pt}
+
+\titleformat{\section}
+  {\normalfont\large\bfseries\color{chapterblue}}
+  {\thesection}{1em}{}
+
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}
+  {\thesubsection}{1em}{}
+
+% ── Header / footer ─────────────────────────────────────────────
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\leftmark}
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ── Hyperlinks ──────────────────────────────────────────────────
+\RequirePackage[
+  colorlinks=true,
+  linkcolor=chapterblue,
+  citecolor=chapterblue,
+  urlcolor=chapterblue,
+  pdftitle={Evaluating Causal Explanations in LLMs: A Student Perspective},
+  pdfauthor={Sirine Ben Mansour}
+]{hyperref}
+
+% ── Code listings ───────────────────────────────────────────────
+\RequirePackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray}\itshape,
+  stringstyle=\color{OliveGreen},
+  breaklines=true,
+  frame=single,
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  captionpos=b,
+  tabsize=4
+}
+
+% ── Algorithms ──────────────────────────────────────────────────
+\RequirePackage[ruled, vlined, linesnumbered]{algorithm2e}
+
+% ── Bibliography ────────────────────────────────────────────────
+\RequirePackage[numbers, sort&compress]{natbib}
+\bibliographystyle{unsrtnat}
+
+% ── Utility ─────────────────────────────────────────────────────
+\RequirePackage{enumerate}
+\RequirePackage{enumitem}
+\RequirePackage{lipsum}
+\RequirePackage{pdfpages}
+\RequirePackage{rotating}
+\RequirePackage{pdflscape}

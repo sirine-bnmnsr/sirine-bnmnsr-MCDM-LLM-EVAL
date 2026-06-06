@@ -1,0 +1,27 @@
+# Core data science
+numpy>=1.24
+pandas>=2.0
+scipy>=1.10
+scikit-learn>=1.3
+
+# LLM querying
+datasets>=2.14          # MMLU dataset loading (cais/mmlu)
+
+# Embedding and NLP
+sentence-transformers>=2.2  # Local embeddings (all-MiniLM-L6-v2)
+
+# Visualisation
+matplotlib>=3.7
+
+# Inter-rater reliability
+pingouin>=0.5           # ICC(2,k) computation
+
+# Notebooks
+jupyter>=1.0
+ipykernel>=6.0
+
+# Optional: OpenAI embeddings backend (not required for local runs)
+# openai>=1.0
+
+# Optional: Ollama Python client (alternative to subprocess calls)
+# ollama>=0.1
