@@ -1,0 +1,20 @@
+Judge,Status,λmax,CI,CR,University,Filled the full survey?
+J1,Consistent ✓,4.1057,0.0352,0.0392,TBS,
+J10,Acceptable ~,4.3094,0.1031,0.1146,TBS,
+J1.1,Inconsistent ✗,4.6833,0.2278,0.2531,UNICAS,NO
+J11,Acceptable ~,4.3094,0.1031,0.1146,UNICAS,YES
+J3,Acceptable ~,4.3301,0.11,0.1222,TBS,
+J22,Consistent ✓,4.1694,0.0565,0.0627,UNICAS,YES
+J4,Acceptable ~,4.3695,0.1232,0.1369,TBS,
+J5,Inconsistent ✗,4.7165,0.2388,0.2654,TBS,
+J33,Inconsistent ✗,5.2752,0.4251,0.4723,UNICAS,YES
+J6,Acceptable ~,4.2834,0.0945,0.105,TBS,
+J7,Consistent ✓,4.0807,0.0269,0.0299,TBS,
+J8,Consistent ✓,4.1233,0.0411,0.0457,TBS,
+J44,Inconsistent ✗,5.026,0.342,0.38,UNICAS,YES
+J9,Inconsistent ✗,5.0658,0.3553,0.3948,TBS,
+J55,Inconsistent ✗,4.6881,0.2294,0.2549,UNICAS,NO
+J66,Inconsistent ✗,4.7078,0.2359,0.2622,UNICAS,YES
+J77,Inconsistent ✗,5.1647,0.3882,0.4314,UNICAS,YES
+J88,Inconsistent ✗,6.4392,0.8131,0.9034,UNICAS,NO
+J99,Inconsistent ✗,5.5071,0.5024,0.5582,UNICAS,NO
